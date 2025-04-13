@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .magazine {
+      display: grid;
+      /* 列定义：左栏 | 主栏 | 右栏 */
+      grid-template-columns: [start] 120px [main-start] 1fr [sidebar-start] 200px [end];
+      /* 行定义：每行高度明确指定 */
+      grid-template-rows: 
+        [header] 80px 
+        [title] auto 
+        [divider] 3px 
+        [content] minmax(200px, auto) 
+        [footer] 60px;
+      gap: 12px;
+      width: 800px; /* 增加固定宽度 */
+      margin: 0 auto; /* 居中 */
+      font-family: Arial, sans-serif;
+    }
+    /* 所有网格项公共样式 */
+    .magazine > * {
+      padding: 15px;
+      border-radius: 4px;
+      box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+    }
+    /* 具体区域定位 */
+    .header {
+      grid-column: start / end;
+      grid-row: header;
+      background: #2c3e50;
+      color: white;
+    }
+    .title {
+      grid-column: main-start / sidebar-start;
+      grid-row: title;
+      background: #ecf0f1;
+    }
+    .date {
+      grid-column: sidebar-start / end;
+      grid-row: title;
+      background: #ecf0f1;
+      text-align: right;
+    }
+    .divider {
+      grid-column: start / end;
+      grid-row: divider;
+      background: #7f8c8d;
+      border: none;
+      height: 3px;
+    }
+    .quote {
+      grid-column: start / main-start;
+      grid-row: content;
+      background: #f39c12;
+      color: white;
+    }
+    .main-img {
+      grid-column: main-start / sidebar-start;
+      grid-row: content;
+      background: #3498db;
+      color: white;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    .toolbar {
+      grid-column: sidebar-start / end;
+      grid-row: content;
+      background: #9b59b6;
+      color: white;
+    }
+    .content {
+      grid-column: start / sidebar-start;
+      grid-row: content;
+      background: #2ecc71;
+      color: white;
+    }
+    .ad {
+      grid-column: sidebar-start / end;
+      grid-row: content;
+      background: #e74c3c;
+      color: white;
+    }
+    .footer {
+      grid-column: start / main-start;
+      grid-row: footer;
+      background: #34495e;
+      color: white;
+    }
+    .copyright {
+      grid-column: main-start / end;
+      grid-row: footer;
+      background: #34495e;
+      color: white;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="magazine">
+    <header class="header">《DeepSeek教学志》</header>
+    <h1 class="title">d导的CSS Grid魔法课堂</h1>
+    <div class="date">2024-06-15</div>
+    <hr class="divider">
+    <blockquote class="quote">“网格线是程序员写给浏览器的情��”</blockquote>
+    <img class="main-img" src="https://placehold.co/600x400?text=d导实战演示" alt="示例图片">
+    <aside class="toolbar">
+      <h3>d导小工具</h3>
+      <ul>
+        <li>布局调试器</li>
+        <li>代码生成器</li>
+      </ul>
+    </aside>
+    <article class="content">
+      <h2>学习笔记</h2>
+      <p>通过本杂志布局，我已掌握：</p>
+      <ol>
+        <li>网格线精���定位</li>
+        <li>区域命名技巧</li>
+      </ol>
+    </article>
+    <div class="ad">d导名言：/* 注释是给未来的自己看的 */</div>
+    <footer class="footer">d导联系方式：console.log('📞')</footer>
+    <div class="copyright">© 2024 DeepSeek学院</div>
+  </div>
+</body>
+</html>
